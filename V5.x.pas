@@ -1,4 +1,4 @@
-
+ï»¿
 # Based on GAppProxy 2.0.0 by Du XiaoGang <dugang.2008@gmail.com>
 # Based on WallProxy 0.4.0 by Hust Moon <www.ehust@gmail.com>
 # Contributor:
@@ -47,13 +47,13 @@
 unit Unit1;
 
 interface
-//         ·ãÒ¶Ïã½¶v5XÏµÁĞ Ô´Âë 
+//         æ«å¶é¦™è•‰v5Xç³»åˆ— æºç  
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
 
   Dialogs, TLhelp32, shellapi, StdCtrls, Types, ShlObj, ActiveX, ComObj,
   Vcl.ExtCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.ComCtrls, Registry,
-  Vcl.OleCtrls, SHDocVw, {¸Ãº¯ÊıÊ¹ÓÃµÄµ¥Ôª} IOUtils, Wininet, StrUtils, MPlayer,
+  Vcl.OleCtrls, SHDocVw, {è¯¥å‡½æ•°ä½¿ç”¨çš„å•å…ƒ} IOUtils, Wininet, StrUtils, MPlayer,
   mmsystem, ToolWin, IniFiles, System.Zip, Vcl.Imaging.pngimage,
   Vcl.Imaging.GIFImg, IdHashSHA, Typinfo,
   Vcl.ImgList;
@@ -178,12 +178,12 @@ type
     { Public declarations }
   end;
 function SetLayeredWindowAttributes(hwnd: HWND; crKey: Longint; bAlpha: byte;
-  dwFlags: longint): longint; stdcall; external user32; //º¯ÊıÉùÃ÷
+  dwFlags: longint): longint; stdcall; external user32; //å‡½æ•°å£°æ˜
 var
   Form1: TForm1;
-  ee1, filename1: string;               // ¿ØÖÆ»ğºüä¯ÀÀÆ÷Æô¶¯
-  slist: TStringList;                   //´æ´¢ÎÄ±¾ÎÄ¼şÄÚÈİ
-  pstrarray: array of string;           //Êı×é
+  ee1, filename1: string;               // æ§åˆ¶ç«ç‹æµè§ˆå™¨å¯åŠ¨
+  slist: TStringList;                   //å­˜å‚¨æ–‡æœ¬æ–‡ä»¶å†…å®¹
+  pstrarray: array of string;           //æ•°ç»„
   i, icount: integer;
   mytitle, mytext: string;
   createini: TiniFile;                  //------------
@@ -198,7 +198,7 @@ var
   MyStream: TMemIniFile;
   //--------------
   Reg: TRegistry;
-  proxya: string;                       //ÖÇÄÜ´úÀíÈ«¾ÖÉêÃ÷
+  proxya: string;                       //æ™ºèƒ½ä»£ç†å…¨å±€ç”³æ˜
   SEX: integer;
   info: INTERNET_PROXY_INFO;
   StrEncrypt, StrEncrypt1: string;
@@ -234,7 +234,7 @@ var
   StrGetVolumeID: string;
   StrEncryption: string;
   StrEncryptionGet: string;
-function GetFile_SHA1(const iFileName: string): string; // »ñÈ¡ÎÄ¼şSHA1
+function GetFile_SHA1(const iFileName: string): string; // è·å–æ–‡ä»¶SHA1
 implementation
 
 {$R *.dfm}
@@ -258,9 +258,9 @@ begin
   end;
 end;
 
-{×Ô¶¯ÊÊÓ¦ÆÁÄ» ---¿ªÊ¼}
+{è‡ªåŠ¨é€‚åº”å±å¹• ---å¼€å§‹}
 
-function DayOfWeek(const DateTime: TDateTime): Word;  //ÅĞ¶ÏĞÇÆÚ¼¸,Å¼ÊıÉı¼¶£¬»ùÊısleep
+function DayOfWeek(const DateTime: TDateTime): Word;  //åˆ¤æ–­æ˜ŸæœŸå‡ ,å¶æ•°å‡çº§ï¼ŒåŸºæ•°sleep
 begin
   Result := DateTimeToTimeStamp(DateTime).Date mod 7 + 1;
 end;
@@ -364,7 +364,7 @@ begin
     LocList.Free;
   end;
 end;
-{×Ô¶¯ÊÊÓ¦ÆÁÄ» ---½áÊø}
+{è‡ªåŠ¨é€‚åº”å±å¹• ---ç»“æŸ}
 
 function GetFile_SHA1(const iFileName: string): string;  //Checksum hash value for firefox
 
@@ -414,7 +414,7 @@ begin
     end;
   until (retCode <> ERROR_SUCCESS);
   RegCloseKey(hKey1);
-  // showmessage('²¦ºÅÈ¡Ïû³É¹¦£¡') ;
+  // showmessage('æ‹¨å·å–æ¶ˆæˆåŠŸï¼') ;
   sleep(50);
   Result := True;
   reg.CloseKey;
@@ -454,7 +454,7 @@ begin
     end;
   until (retCode <> ERROR_SUCCESS);
   RegCloseKey(hKey1);
-  //showmessage('²¦ºÅÉèÖÃ³É¹¦£¡') ;
+  //showmessage('æ‹¨å·è®¾ç½®æˆåŠŸï¼') ;
   SLEEP(50);
   Result := True;
 
@@ -495,7 +495,7 @@ begin
     end;
   until (retCode <> ERROR_SUCCESS);
   RegCloseKey(hKey1);
-  //showmessage('²¦ºÅÉèÖÃ³É¹¦£¡') ;
+  //showmessage('æ‹¨å·è®¾ç½®æˆåŠŸï¼') ;
   SLEEP(50);
   Result := True;
 
@@ -503,7 +503,7 @@ begin
   reg.free;
 end;
 
-function StrPosCount(subs: string; source: string): integer;  //Í³¼Æ×Ö·û´®³öÏÖµÄ´ÎÊı
+function StrPosCount(subs: string; source: string): integer;  //ç»Ÿè®¡å­—ç¬¦ä¸²å‡ºç°çš„æ¬¡æ•°
 var
   Str: string;
 begin
@@ -518,14 +518,14 @@ end;
 
 {===============================================================================
 
-º¯ÊıÃû:    Rc4_StrEncrypt()
-Ãè  Êö:    RC4 Based string encryption
-²Î  Êı:   i_Encrypt ¡ª¡ªÎª 1 ÊÇ¼ÓÃÜ, 0 ÊÇ½âÃÜ£¨integerÀàĞÍ£©£»
-        s_EncryptText ¡ª¡ª´ı¼ÓÃÜ£¨½âÃÜ£©µÄ×Ö·û´®£¨stringÀàĞÍ£©£»
-        s_EncryptPassword ¡ª¡ª¼ÓÃÜ£¨½âÃÜ£©µÄÃÜÂë£¨stringÀàĞÍ£©£»
-        i_EncryptLevel ¡ª¡ª¼ÓÃÜ¼¶±ğ£¨·¶Î§£º1£­£­10£»integerÀàĞÍ£©£©
+å‡½æ•°å:    Rc4_StrEncrypt()
+æ  è¿°:    RC4 Based string encryption
+å‚  æ•°:   i_Encrypt â€”â€”ä¸º 1 æ˜¯åŠ å¯†, 0 æ˜¯è§£å¯†ï¼ˆintegerç±»å‹ï¼‰ï¼›
+        s_EncryptText â€”â€”å¾…åŠ å¯†ï¼ˆè§£å¯†ï¼‰çš„å­—ç¬¦ä¸²ï¼ˆstringç±»å‹ï¼‰ï¼›
+        s_EncryptPassword â€”â€”åŠ å¯†ï¼ˆè§£å¯†ï¼‰çš„å¯†ç ï¼ˆstringç±»å‹ï¼‰ï¼›
+        i_EncryptLevel â€”â€”åŠ å¯†çº§åˆ«ï¼ˆèŒƒå›´ï¼š1ï¼ï¼10ï¼›integerç±»å‹ï¼‰ï¼‰
 
-·­Òë:        Îâ¼äµÀ
+ç¿»è¯‘:        å´é—´é“
 QQ:           93331961
 =============================================================================== }
 
@@ -686,7 +686,7 @@ begin
   end;
 end;
 
-function DeleteDirectory(NowPath: string): Boolean; // É¾³ıÕû¸öÄ¿Â¼
+function DeleteDirectory(NowPath: string): Boolean; // åˆ é™¤æ•´ä¸ªç›®å½•
 var
   search: TSearchRec;
   ret: integer;
@@ -717,15 +717,15 @@ begin
   result := True;
 end;
 
-procedure TForm1.SysCommand(var SysMsg: TMessage); //×îĞ¡»¯ Òş²Øµ½ ÍĞÅÌ
+procedure TForm1.SysCommand(var SysMsg: TMessage); //æœ€å°åŒ– éšè—åˆ° æ‰˜ç›˜
 begin
   case SysMsg.WParam of
     SC_CLOSE:
       begin
-        // µ±×îĞ¡»¯Ê±
+        // å½“æœ€å°åŒ–æ—¶
         SetWindowPos(Application.Handle, HWND_NOTOPMOST, 0, 0, 0, 0,
           SWP_HIDEWINDOW);
-        form1.hide;                     // ÔÚÈÎÎñÀ¸Òş²Ø³ÌĞò
+        form1.hide;                     // åœ¨ä»»åŠ¡æ éšè—ç¨‹åº
       end;
 
   else
@@ -733,10 +733,10 @@ begin
     case SysMsg.WParam of
       SC_MINIMIZE:
         begin
-          // µ±×îĞ¡»¯Ê±
+          // å½“æœ€å°åŒ–æ—¶
           SetWindowPos(Application.Handle, HWND_NOTOPMOST, 0, 0, 0, 0,
             SWP_HIDEWINDOW);
-          form1.hide;                   // ÔÚÈÎÎñÀ¸Òş²Ø³ÌĞò
+          form1.hide;                   // åœ¨ä»»åŠ¡æ éšè—ç¨‹åº
         end;
     else
       inherited;
@@ -745,7 +745,7 @@ begin
   end;
 end;
 
-function certDisabledProxyEnable(const key: boolean = True): boolean;  //È¡ÏûÖ¤Êé¾¯¸æ
+function certDisabledProxyEnable(const key: boolean = True): boolean;  //å–æ¶ˆè¯ä¹¦è­¦å‘Š
 var
   Reg: TRegistry;
   info: INTERNET_PROXY_INFO;
@@ -767,9 +767,9 @@ begin
     Reg.Free;
   end;
 end;
-//------------------------------------------------  È¡ÏûÖ¤Êé¾¯¸æ
+//------------------------------------------------  å–æ¶ˆè¯ä¹¦è­¦å‘Š
 
-procedure cryptFile(srcFile, dstFile: TFilename); //¼ÓÃÜº¯Êı
+procedure cryptFile(srcFile, dstFile: TFilename); //åŠ å¯†å‡½æ•°
 var
   srcf, dstf: file of byte;
   buf: byte;
@@ -781,14 +781,14 @@ begin
   while not eof(srcf) do
   begin
     read(srcf, buf);
-    buf := buf + 21;                    //ÕâÀï¿ÉÒÔĞŞ¸Ä³ÉÆäËûµÄÊıÖµ
+    buf := buf + 21;                    //è¿™é‡Œå¯ä»¥ä¿®æ”¹æˆå…¶ä»–çš„æ•°å€¼
     write(dstf, buf);
   end;
   closefile(srcf);
   closefile(dstf);
 end;
 
-procedure decryptFile(srcFile, dstFile: TFilename); //½âÃÜº¯Êı
+procedure decryptFile(srcFile, dstFile: TFilename); //è§£å¯†å‡½æ•°
 var
   srcf, dstf: file of byte;
   buf: byte;
@@ -800,7 +800,7 @@ begin
   while not eof(srcf) do
   begin
     read(srcf, buf);
-    buf := buf - 21;                    //ÕâÀï¿ÉÒÔ×÷ÏàÓ¦ĞŞ¸Ä
+    buf := buf - 21;                    //è¿™é‡Œå¯ä»¥ä½œç›¸åº”ä¿®æ”¹
     write(dstf, buf);
   end;
   closefile(srcf);
@@ -842,22 +842,22 @@ begin
 
   IPFile := IObj as IPersistFile;
   if IPFile.Save(PWideChar(LinkFileName), False) = 0 then Result := True;
-end;                                    {CreateShortcut º¯Êı½áÊø}
+end;                                    {CreateShortcut å‡½æ•°ç»“æŸ}
 //-----------------------------------------------------
 
 procedure ExtractRes(ResType, ResName, ResNewName: string);
 var
   Res: TResourceStream;
-begin                                   //ÊÍ·Å×ÊÔ´ÎÄ¼şlibrary.ini
+begin                                   //é‡Šæ”¾èµ„æºæ–‡ä»¶library.ini
   Res := TResourceStream.Create(Hinstance, Resname, Pchar(ResType));
   Res.SavetoFile(ResNewName);
   Res.Free;
-end;                                    //Õâ¸ö·½·¨ÒâË¼ÊÇÊÍ·Å×ÊÔ´ÎÄ¼ş   ÓĞÈı¸ö²ÎÊı
-//Ò»¸ö×ÊÔ´ÀàĞÍ   2 ×ÊÔ´Ãû×Ö   Éú³É×ÊÔ´µÄÃû×Ö
+end;                                    //è¿™ä¸ªæ–¹æ³•æ„æ€æ˜¯é‡Šæ”¾èµ„æºæ–‡ä»¶   æœ‰ä¸‰ä¸ªå‚æ•°
+//ä¸€ä¸ªèµ„æºç±»å‹   2 èµ„æºåå­—   ç”Ÿæˆèµ„æºçš„åå­—
 
 //----------------------------------------------------
 
-procedure RefreshControl(Control: TControl);  ///½â¾ö ÍĞÅÌÖØÏÖÏÔÊ¾´°Ìå¿Ø¼ş ÎŞ·¨ÖØ»­µÄÎÊÌâ
+procedure RefreshControl(Control: TControl);  ///è§£å†³ æ‰˜ç›˜é‡ç°æ˜¾ç¤ºçª—ä½“æ§ä»¶ æ— æ³•é‡ç”»çš„é—®é¢˜
 var
   i: integer;
 begin
@@ -870,14 +870,14 @@ end;
 
 function FindProcess(AFileName: string): boolean;
 var
-  hSnapshot: THandle;                   //ÓÃÓÚ»ñµÃ½ø³ÌÁĞ±í
-  lppe: TProcessEntry32;                //ÓÃÓÚ²éÕÒ½ø³Ì
-  Found: Boolean;                       //ÓÃÓÚÅĞ¶Ï½ø³Ì±éÀúÊÇ·ñÍê³É
+  hSnapshot: THandle;                   //ç”¨äºè·å¾—è¿›ç¨‹åˆ—è¡¨
+  lppe: TProcessEntry32;                //ç”¨äºæŸ¥æ‰¾è¿›ç¨‹
+  Found: Boolean;                       //ç”¨äºåˆ¤æ–­è¿›ç¨‹éå†æ˜¯å¦å®Œæˆ
 begin
   Result := False;
-  hSnapshot := CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);  //»ñµÃÏµÍ³½ø³ÌÁĞ±í
-  lppe.dwSize := SizeOf(TProcessEntry32);  //ÔÚµ÷ÓÃProcess32First APIÖ®Ç°£¬ĞèÒª³õÊ¼»¯lppe¼ÇÂ¼µÄ´óĞ¡
-  Found := Process32First(hSnapshot, lppe);  //½«½ø³ÌÁĞ±íµÄµÚÒ»¸ö½ø³ÌĞÅÏ¢¶ÁÈëppe¼ÇÂ¼ÖĞ
+  hSnapshot := CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);  //è·å¾—ç³»ç»Ÿè¿›ç¨‹åˆ—è¡¨
+  lppe.dwSize := SizeOf(TProcessEntry32);  //åœ¨è°ƒç”¨Process32First APIä¹‹å‰ï¼Œéœ€è¦åˆå§‹åŒ–lppeè®°å½•çš„å¤§å°
+  Found := Process32First(hSnapshot, lppe);  //å°†è¿›ç¨‹åˆ—è¡¨çš„ç¬¬ä¸€ä¸ªè¿›ç¨‹ä¿¡æ¯è¯»å…¥ppeè®°å½•ä¸­
   while Found do
   begin
     if ((UpperCase(ExtractFileName(lppe.szExeFile)) = UpperCase(AFileName)) or
@@ -885,7 +885,7 @@ begin
     begin
       Result := True;
     end;
-    Found := Process32Next(hSnapshot, lppe);  //½«½ø³ÌÁĞ±íµÄÏÂÒ»¸ö½ø³ÌĞÅÏ¢¶ÁÈëlppe¼ÇÂ¼ÖĞ
+    Found := Process32Next(hSnapshot, lppe);  //å°†è¿›ç¨‹åˆ—è¡¨çš„ä¸‹ä¸€ä¸ªè¿›ç¨‹ä¿¡æ¯è¯»å…¥lppeè®°å½•ä¸­
   end;
 end;
 //----------------------------------------------------------------------------------------------------------
@@ -974,7 +974,7 @@ begin
 end;
 //-----------------------------------------------------------------------------
 
-function dDisabledProxyEnable(const key: boolean = True): boolean; //È¡Ïû´úÀí
+function dDisabledProxyEnable(const key: boolean = True): boolean; //å–æ¶ˆä»£ç†
 var
 
   Reg: TRegistry;
@@ -998,7 +998,7 @@ begin
     Reg.Free;
   end;
 end;
-//------------------------------------------------  ChangeProxy  ÖÇÄÜ´úÀíÄ£Ê½£¬Ğ´×¢²á±í
+//------------------------------------------------  ChangeProxy  æ™ºèƒ½ä»£ç†æ¨¡å¼ï¼Œå†™æ³¨å†Œè¡¨
          //const Proxy, Port,ByPass: string;
 
 function ChangeProxy1(const bEnabled: boolean = True): boolean;
@@ -1012,7 +1012,7 @@ begin
   Result := False;
   FProxy := 'http://127.0.0.1:8086/proxy.pac';
   reg := TreGIStry.Create;
-  //ÅĞ¶Ï ¼üÖµ ÊÇ·ñ´´½¨£¡
+  //åˆ¤æ–­ é”®å€¼ æ˜¯å¦åˆ›å»ºï¼
   Reg1 := TRegistry.Create;
   Reg1.RootKey := HKEY_CURRENT_USER;
   Reg1.OpenKeyReadOnly('\Software\Microsoft\windows\CurrentVersion\Internet Settings');
@@ -1037,7 +1037,7 @@ begin
   end
   else
   begin
-    //showmessage('ÖÇÄÜÄ£Ê½ÒÑ¾­´´½¨,ÇëÎğÖØ¸´²Ù×÷£¡');
+    //showmessage('æ™ºèƒ½æ¨¡å¼å·²ç»åˆ›å»º,è¯·å‹¿é‡å¤æ“ä½œï¼');
     sleep(50);
   end;
 end;
@@ -1050,15 +1050,15 @@ var
 begin
   if FindProcess('kylinagent.exe') then
   begin
-    TrayIcon1.BalloonTitle := 'Ïã½¶ÌáÊ¾';
-    TrayIcon1.BalloonHint := '·ãÒ¶Ïã½¶Õı³£ÔËĞĞ£¡¿ªÊ¼ÄãµÄ·­Ç½Ö®ÂÃ';
+    TrayIcon1.BalloonTitle := 'é¦™è•‰æç¤º';
+    TrayIcon1.BalloonHint := 'æ«å¶é¦™è•‰æ­£å¸¸è¿è¡Œï¼å¼€å§‹ä½ çš„ç¿»å¢™ä¹‹æ—…';
     TrayIcon1.ShowBalloonHint;
     form2.Timer1.Enabled := true;
     Form2.Top := (Screen.Height - Form2.Height) div 2;
     Form2.Left := (Screen.Width - Form2.Width) div 2;
     form2.show;
 
-    //----------------------------------------------------------                  ½â¾ö ie  ºÍchrome Ö¤ÊéÎÊÌâ
+    //----------------------------------------------------------                  è§£å†³ ie  å’Œchrome è¯ä¹¦é—®é¢˜
               //deletefile('C:\windows\kylin-proxy\proxy.ini');
             //  deletefile('C:\windows\Library1.ini');
              //sleep(2000);
@@ -1137,34 +1137,34 @@ var
   zip: TZipFile;
   //--------------
   strcopysource, strcopyobject: string;
-  intcopy, intcopy1: integer;           //    »ğºüÖ¤ÊéÉêÃ÷
+  intcopy, intcopy1: integer;           //    ç«ç‹è¯ä¹¦ç”³æ˜
   dir: TDirectory;
-  files: TStringDynArray;               //ĞèÒª Types µ¥ÔªÖ§³Ö
+  files: TStringDynArray;               //éœ€è¦ Types å•å…ƒæ”¯æŒ
   str: string;
   //--------------------
   hr: thandle;
-  l: longint;                           //´°ÌåÍ¸Ã÷ÉêÃ÷
-  ¡¡¡¡strrich, strCheck: string;
+  l: longint;                           //çª—ä½“é€æ˜ç”³æ˜
+  ã€€ã€€strrich, strCheck: string;
   ARegistry: TRegistry;
   TOM: string;
-  ¡¡¡¡
+  ã€€ã€€
 begin
 
-  ChangeProxy1(true);                   //ÉèÖÃÖÇÄÜ´úÀí
-  form1.WebBrowser1.Navigate('www.BAIDU.COM'); //ÈÃchromeä¯ÀÀÆ÷Á¢¼´ÉúĞ§ µ÷ÓÃ´úÀí
+  ChangeProxy1(true);                   //è®¾ç½®æ™ºèƒ½ä»£ç†
+  form1.WebBrowser1.Navigate('www.BAIDU.COM'); //è®©chromeæµè§ˆå™¨ç«‹å³ç”Ÿæ•ˆ è°ƒç”¨ä»£ç†
   StrGetVolumeID := GetVolumeID;
   StrEncryption := rc4(1, StrGetVolumeID, 'sheismysin', 4); //
   SetWindowLong(Application.Handle, GWL_EXSTYLE,
     getWindowLong(Application.Handle, GWL_EXSTYLE) or WS_EX_TOOLWINDOW);
   //do net show form in Taskbar
 
-  FitDeviceResolution(Self);            //×Ô¶¯ÊÊÓ¦ÆÁÄ»
+  FitDeviceResolution(Self);            //è‡ªåŠ¨é€‚åº”å±å¹•
 
   // form3.Timer1.Enabled:=true;
   trayicon1.ShowBalloonHint;
   n3.Checked := true;
-  certDisabledProxyEnable(false);       // È¡ÏûÖ¤Êé¾¯¸æ
-  SetWindowLong(Application.Handle, GWL_EXSTYLE, WS_EX_TOOLWINDOW);  //ÈÃÆô¶¯´°Ìå²»ÏÔÊ¾ÔÚÈÎÎñÀ¸£¡
+  certDisabledProxyEnable(false);       // å–æ¶ˆè¯ä¹¦è­¦å‘Š
+  SetWindowLong(Application.Handle, GWL_EXSTYLE, WS_EX_TOOLWINDOW);  //è®©å¯åŠ¨çª—ä½“ä¸æ˜¾ç¤ºåœ¨ä»»åŠ¡æ ï¼
   //---------------------------------------------------------------
   l := getWindowLong(Handle, GWL_EXSTYLE);
   l := l or WS_EX_LAYERED;
@@ -1175,28 +1175,28 @@ begin
 
   Application.ShowMainForm := False;
   self1 := ExtractFileDir(Application.Exename);
-  //´Ó×ÊÔ´ÎÄ¼şÖĞÊÍ·ÅÑ¹ËõÎÄ¼ş
+  //ä»èµ„æºæ–‡ä»¶ä¸­é‡Šæ”¾å‹ç¼©æ–‡ä»¶
   //----------------------------------------------
 
     // changeproxy('127.0.0.1','8086','1',true);
 
   StrMyPath := ExtractFilename(Application.Exename);
 
-  TrayIcon1.Hint := '·ãÒ¶Ïã½¶ÌáÊ¾' + #13 + '´úÀíÄ£Ê½:ÖÇÄÜ'#13 + '°æ±¾ºÅ:V5.3';
+  TrayIcon1.Hint := 'æ«å¶é¦™è•‰æç¤º' + #13 + 'ä»£ç†æ¨¡å¼:æ™ºèƒ½'#13 + 'ç‰ˆæœ¬å·:V5.3';
 
-  Strkylinpath := GetEnvironmentVariable('APPDATA') + '\maplebanana\';  // ÒÔÇ°Ò»Ö±ÓÃÕâ¸ö
+  Strkylinpath := GetEnvironmentVariable('APPDATA') + '\maplebanana\';  // ä»¥å‰ä¸€ç›´ç”¨è¿™ä¸ª
   //----------------------------------------------
   if FileExists(Strkylinpath + 'v5302.run') then
   begin
-    TrayIcon1.BalloonTitle := 'Ïã½¶ÌáÊ¾';
-    TrayIcon1.BalloonHint := '°æ±¾¸üĞÂ³É¹¦£¡';
+    TrayIcon1.BalloonTitle := 'é¦™è•‰æç¤º';
+    TrayIcon1.BalloonHint := 'ç‰ˆæœ¬æ›´æ–°æˆåŠŸï¼';
     TrayIcon1.ShowBalloonHint;
     sleep(50);
-    // showmessage(Strkylinpath+'¸üĞÂ³É¹¦');
+    // showmessage(Strkylinpath+'æ›´æ–°æˆåŠŸ');
   end
   else
   begin
-    // showmessage(Strkylinpath+'ÕıÔÚ¸üĞÂ');
+    // showmessage(Strkylinpath+'æ­£åœ¨æ›´æ–°');
     KillTask('firefox.exe');
     KillTask('cmd.exe');
     killtask('update.exe');
@@ -1215,7 +1215,7 @@ begin
       CreateDirectory(PChar(Strkylinpath), nil);
 
     end;
-    //===========================ÊÍ·ÅÑ¹ËõÎÄ¼ş=============================================
+    //===========================é‡Šæ”¾å‹ç¼©æ–‡ä»¶=============================================
     if FileExists(Strkylinpath + 'kylin.zip') then
     begin
       //ShowMessage(Strkylinpath+'\kylin.zip');
@@ -1226,12 +1226,12 @@ begin
     else
     begin
       //ShowMessage('kylin.zip');
-      ExtractRes('EXEFILE', 'test', Strkylinpath + 'kylin.zip');  //´Ó×ÊÔ´ÎÄ¼şÖĞÊÍ·ÅÑ¹ËõÎÄ¼ş
+      ExtractRes('EXEFILE', 'test', Strkylinpath + 'kylin.zip');  //ä»èµ„æºæ–‡ä»¶ä¸­é‡Šæ”¾å‹ç¼©æ–‡ä»¶
     end;
 
     if FileExists(Strkylinpath + 'v5302.run') then
     begin
-      ShowMessage('½âÑ¹³É¹¦');
+      ShowMessage('è§£å‹æˆåŠŸ');
       sleep(50);
     end
     else
@@ -1239,11 +1239,11 @@ begin
       zip := TZipFile.Create;
       zip.Open(Strkylinpath + 'kylin.zip', TZipMode.zmRead);
       zip.ExtractAll(Strkylinpath);
-      zip.Free;                         //½áÊø½âÑ¹
+      zip.Free;                         //ç»“æŸè§£å‹
 
     end;
   end;
-  //----------------------------------------------------------   °²×°ieÖ¤Êé¸øieÄÚºËµÄä¯ÀÀÆ÷µ÷ÓÃ
+  //----------------------------------------------------------   å®‰è£…ieè¯ä¹¦ç»™ieå†…æ ¸çš„æµè§ˆå™¨è°ƒç”¨
 
   ComA := 0;
   ComB := 1;
@@ -1254,7 +1254,7 @@ begin
 
   if vi = ComB then
   begin
-    // ShowMessage('¿ÉÒÔ°²×°Ö¤Êé£¡');
+    // ShowMessage('å¯ä»¥å®‰è£…è¯ä¹¦ï¼');
     ee := Strkylinpath;
 
     ShellExecute(0, nil, 'Install_Certificate.exe', nil, PChar(ee),
@@ -1266,11 +1266,11 @@ begin
   end;
   if vi = ComA then
   begin
-    //   ShowMessage('ÎŞ·¨°²×°Ö¤Êé£¡');
+    //   ShowMessage('æ— æ³•å®‰è£…è¯ä¹¦ï¼');
     SLEEP(50);
   end;
-  //-------------------------------------------------  ¸ø»ğºü°²×°Ö¤Êé,¸øÆäµ÷ÓÃ
-  Strfirefox := GetEnvironmentVariable('APPDATA') + '\Mozilla'; // ÒÔÇ°Ò»Ö±ÓÃÕâ¸ö
+  //-------------------------------------------------  ç»™ç«ç‹å®‰è£…è¯ä¹¦,ç»™å…¶è°ƒç”¨
+  Strfirefox := GetEnvironmentVariable('APPDATA') + '\Mozilla'; // ä»¥å‰ä¸€ç›´ç”¨è¿™ä¸ª
 
   if not FileExists(Strfirefox + '\Firefox\profiles.ini') then
   begin
@@ -1283,7 +1283,7 @@ begin
     files := dir.GetFiles(Strfirefox, 'key3.db',
       TSearchOption.soAllDirectories);
     for str in files do
-      // memo1.Clear;                     //»ğºüÖ¤Êé°²×°
+      // memo1.Clear;                     //ç«ç‹è¯ä¹¦å®‰è£…
       strcopysource := str;
     intcopy1 := Length('cert8.db');
     intcopy := Length(strcopysource);
@@ -1298,7 +1298,7 @@ begin
       StrShaKylin := GetFile_SHA1(Strkylinpath + 'begin\cert8.db');  //get kylin Certificate sha1 values
       if StrShaFirefox <> StrShaKylin then
       begin
-        // ShowMessage('sha1²»Í¬,ÕıÔÚ¸´ÖÆ');
+        // ShowMessage('sha1ä¸åŒ,æ­£åœ¨å¤åˆ¶');
 
         CopyFile(pchar(Strkylinpath + 'begin\cert8.db'), pchar(strcopyobject +
           '\cert8.db'), false);
@@ -1307,7 +1307,7 @@ begin
       else
       begin
 
-        //   ShowMessage('ÏàÍ¬sha1£¡');
+        //   ShowMessage('ç›¸åŒsha1ï¼');
         sleep(50);
 
       end;
@@ -1315,7 +1315,7 @@ begin
     else
     begin
       sleep(50);
-      //   ShowMessage('·¢ÏÖ»ğºüÔÚÔËĞĞ,ÎŞ·¨¸´ÖÆcert');
+      //   ShowMessage('å‘ç°ç«ç‹åœ¨è¿è¡Œ,æ— æ³•å¤åˆ¶cert');
     end;
 
   end;
@@ -1341,7 +1341,7 @@ procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   ReleaseCapture;
-  SendMessage(Self.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0); //ÒÆ¶¯´°Ìå
+  SendMessage(Self.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0); //ç§»åŠ¨çª—ä½“
 end;
 
 procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -1371,7 +1371,7 @@ end;
 
 procedure TForm1.Image4MouseEnter(Sender: TObject);
 begin
-  //image4.Hint:='¹Ø±ÕÖ÷½çÃæ';
+  //image4.Hint:='å…³é—­ä¸»ç•Œé¢';
 end;
 
 procedure TForm1.Image4MouseLeave(Sender: TObject);
@@ -1408,7 +1408,7 @@ begin
 end;
 
 
-procedure TForm1.N4Click(Sender: TObject); //-----------------------ÓÒ¼üÍË³ö
+procedure TForm1.N4Click(Sender: TObject); //-----------------------å³é”®é€€å‡º
 var
   reg: tregistry;
   info: INTERNET_PROXY_INFO;
@@ -1420,12 +1420,12 @@ begin
   KillTask('kylinagent.exe');
   KillTask('launchAgent.exe');
 
-  //---------------------------------------------------É¾³ıpac
+  //---------------------------------------------------åˆ é™¤pac
   reg := tregistry.Create;
   reg.rootkey := HKEY_CURRENT_USER;
   reg.openkey('Software\Microsoft\windows\CurrentVersion\Internet Settings',
     true);
-  reg.DeleteValue('AutoConfigURL');     //É¾³ı×¢²á±íÏî
+  reg.DeleteValue('AutoConfigURL');     //åˆ é™¤æ³¨å†Œè¡¨é¡¹
   InternetSetOption(nil, INTERNET_OPTION_PROXY, @info, SizeOf(Info));
   InternetSetOption(nil, INTERNET_OPTION_SETTINGS_CHANGED, nil, 0);
   reg.CloseKey;
@@ -1433,7 +1433,7 @@ begin
   //  SLEEP(200);
   dDisabledProxyEnable(false);
   //--------------------------------------------------------------
-       //Shell_NotifyIcon(NIM_DELETE, @TrayIconData); //É¾³ıÍĞÅÌÇøÍ¼±ê
+       //Shell_NotifyIcon(NIM_DELETE, @TrayIconData); //åˆ é™¤æ‰˜ç›˜åŒºå›¾æ ‡
   HALT;
   { end;
  IDCANCEL:
@@ -1455,7 +1455,7 @@ begin
     ACanvas.Font.Color := clWhite;
     ACanvas.Brush.Color := clWebDodgerBlue;
     ACanvas.FillRect(ARect);
-    DrawText(ACanvas.Handle, PChar('   ¿ª»úÆô¶¯'), -1, ARect, DT_LEFT or DT_LEFT
+    DrawText(ACanvas.Handle, PChar('   å¼€æœºå¯åŠ¨'), -1, ARect, DT_LEFT or DT_LEFT
       or DT_SINGLELINE or DT_NOCLIP);
   end
   else
@@ -1465,7 +1465,7 @@ begin
     ACanvas.Brush.Color := clWebSnow;
     ACanvas.FillRect(ARect);
 
-    DrawText(ACanvas.Handle, PChar('   ¿ª»úÆô¶¯'), -1, ARect, DT_LEFT or DT_LEFT
+    DrawText(ACanvas.Handle, PChar('   å¼€æœºå¯åŠ¨'), -1, ARect, DT_LEFT or DT_LEFT
       or DT_SINGLELINE or DT_NOCLIP);
   end;
 end;
@@ -1481,7 +1481,7 @@ begin
     ACanvas.Font.Color := clWhite;
     ACanvas.Brush.Color := clWebDodgerBlue;
     ACanvas.FillRect(ARect);
-    DrawText(ACanvas.Handle, PChar('   È¡Ïû¿ª»úÆô¶¯   '), -1, ARect, DT_LEFT or
+    DrawText(ACanvas.Handle, PChar('   å–æ¶ˆå¼€æœºå¯åŠ¨   '), -1, ARect, DT_LEFT or
       DT_LEFT or DT_SINGLELINE or DT_NOCLIP);
   end
   else
@@ -1491,7 +1491,7 @@ begin
     ACanvas.Brush.Color := clWebSnow;
     ACanvas.FillRect(ARect);
 
-    DrawText(ACanvas.Handle, PChar('   È¡Ïû¿ª»úÆô¶¯   '), -1, ARect, DT_LEFT or
+    DrawText(ACanvas.Handle, PChar('   å–æ¶ˆå¼€æœºå¯åŠ¨   '), -1, ARect, DT_LEFT or
       DT_LEFT or DT_SINGLELINE or DT_NOCLIP);
   end;
 end;
@@ -1683,11 +1683,11 @@ var
   info: INTERNET_PROXY_INFO;
 
 begin
-  TrayIcon1.BalloonTitle := '´úÀíÌáÊ¾';
-  TrayIcon1.BalloonHint := 'ÄãÒÑ¾­ÇĞ»»µ½È«¾ÖÄ£Ê½';
+  TrayIcon1.BalloonTitle := 'ä»£ç†æç¤º';
+  TrayIcon1.BalloonHint := 'ä½ å·²ç»åˆ‡æ¢åˆ°å…¨å±€æ¨¡å¼';
   TrayIcon1.ShowBalloonHint;
-  TrayIcon1.Hint := '·ãÒ¶Ïã½¶ÌáÊ¾' + #13 + '´úÀíÄ£Ê½:È«¾Ö'#13 +
-    '°æ±¾ºÅ:V5.3.0.1';
+  TrayIcon1.Hint := 'æ«å¶é¦™è•‰æç¤º' + #13 + 'ä»£ç†æ¨¡å¼:å…¨å±€'#13 +
+    'ç‰ˆæœ¬å·:V5.3.0.1';
   N2.Checked := true;
   N3.Checked := FALSE;
   N15.Checked := FALSE;
@@ -1700,7 +1700,7 @@ begin
   reg.openkey('Software\Microsoft\windows\CurrentVersion\Internet Settings',
     true);
 
-  reg.DeleteValue('AutoConfigURL');     //É¾³ı×¢²á±íÏî
+  reg.DeleteValue('AutoConfigURL');     //åˆ é™¤æ³¨å†Œè¡¨é¡¹
   InternetSetOption(nil, INTERNET_OPTION_PROXY, @info, SizeOf(Info));
   InternetSetOption(nil, INTERNET_OPTION_SETTINGS_CHANGED, nil, 0);
   reg.CloseKey;
@@ -1726,8 +1726,8 @@ begin
     '103.1.139.72|103.1.139.72|103.1.139.72|103.1.139.72');
   myinifile.destroy;
   // myinifile.destroy;
-  TrayIcon1.BalloonTitle := '´úÀíÌáÊ¾';
-  TrayIcon1.BalloonHint := '±¸ÓÃÏßÂ·Æô¶¯³É¹¦';
+  TrayIcon1.BalloonTitle := 'ä»£ç†æç¤º';
+  TrayIcon1.BalloonHint := 'å¤‡ç”¨çº¿è·¯å¯åŠ¨æˆåŠŸ';
   TrayIcon1.ShowBalloonHint;
 
 end;
