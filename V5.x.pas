@@ -2,6 +2,7 @@
 # Based on GAppProxy 2.0.0 by Du XiaoGang <dugang.2008@gmail.com>
 # Based on WallProxy 0.4.0 by Hust Moon <www.ehust@gmail.com>
 # Contributor:
+#      ringhacker        wenwencoldwomen@gmail.com
 #      Phus Lu           <phus.lu@gmail.com>
 #      Hewig Xu          <hewigovens@gmail.com>
 #      Ayanamist Yang    <ayanamist@gmail.com>
