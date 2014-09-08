@@ -1,12 +1,12 @@
-°æ±¾ºÅ:v5.3.0.3
+ï»¿ç‰ˆæœ¬å·:v5.3.0.3
 
-×÷Õß:ringhacker
+ä½œè€…:ringhacker
 
-±àÒëÆ½Ì¨ºÍÓïÑÔ£ºDELPHI XE7 ¡¢Python
+ç¼–è¯‘å¹³å°å’Œè¯­è¨€ï¼šDELPHI XE7 ã€Python
 
-Ö§³Öä¯ÀÀÆ÷:IE¡¢Chrome¡¢Firefox¡¢Opera ËùÓÐÖ÷Á÷ä¯ÀÀÆ÷
+æ”¯æŒæµè§ˆå™¨:IEã€Chromeã€Firefoxã€Opera æ‰€æœ‰ä¸»æµæµè§ˆå™¨
 
-ÊÚÈ¨:Ãâ·Ñ,¿ÉÒÔ²»¾­¹ý±¾ÏîÄ¿Í¬Òâ×ÔÓÉÊ¹ÓÃ·ãÒ¶Ïã½¶µÄÔ´Âë£¡
+æŽˆæƒ:å…è´¹,å¯ä»¥ä¸ç»è¿‡æœ¬é¡¹ç›®åŒæ„è‡ªç”±ä½¿ç”¨æž«å¶é¦™è•‰çš„æºç ï¼
 
-ÏîÄ¿ÍÆÌØ:https://twitter.com/onionhacker
+é¡¹ç›®æŽ¨ç‰¹:https://twitter.com/onionhacker
 
